@@ -23,6 +23,7 @@ const App = () => {
   return (
     <div className='Container'>
       <Header />
+      <CharacterGrid isLoading={isLoading} items={items} />
     </div>
   );
 };
