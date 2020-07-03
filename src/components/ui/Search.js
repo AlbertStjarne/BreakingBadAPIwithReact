@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 
-const Search = () => {
+const Search = ({ getQuery }) => {
   const [text, setText] = useState('');
 
+  const onChange = (q) => {
+    setText(q);
+    getQuery(q);
+  };
   return (
     <div className='search'>
       <form>
@@ -11,7 +15,7 @@ const Search = () => {
           className='form-control'
           placeholder='Search character'
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => onChange(e.target.value)}
           autoFocus
         />
       </form>
